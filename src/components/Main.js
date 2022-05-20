@@ -5,7 +5,9 @@ import styled, { keyframes } from 'styled-components'
 import LogoComponent from '../SubComponents/Logo'
 import PowerButton from '../SubComponents/PowerButton'
 import SocialMenu from '../SubComponents/SocialMenu'
+import Infos from './Infos'
 import { YinYang } from './Svg'
+import { motion } from 'framer-motion'
 
 const MainContainer = styled.div`
 background: ${props => props.theme.body};
@@ -146,24 +148,36 @@ const Main = () => {
                 </Center>
 
                 <Contact target="_blank" to={{ pathname: "mailto:loulou.fg@gmail.com" }} >
-                    <h3>Let's Talk !</h3>
+                    <motion.h3
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                    >Let's Talk !</motion.h3>
                 </Contact>
                 <Blog to='/blog' >
-                    <h3>Design</h3>
+                    <motion.h3
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}>Design</motion.h3>
                 </Blog>
                 <Work to='/work' click={click} >
-                    <h3>Work</h3>
+                    <motion.h3
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}>Work</motion.h3>
                 </Work>
                 <BottomBar>
                     <About to='/about' click={click} >
-                        <h3>About Me</h3>
+                        <motion.h3
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}>About Me</motion.h3>
                     </About>
                     <Skills to='/skills' >
-                        <h3>My skills</h3>
+                        <motion.h3
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}>My skills</motion.h3>
                     </Skills>
                 </BottomBar>
 
             </Container>
+            {click ? <Infos click={click} /> : null}
 
         </MainContainer>
     )
